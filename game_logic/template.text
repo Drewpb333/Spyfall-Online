@@ -1,0 +1,70 @@
+****Game Logic
+
+*Create an array for SpyFall locations.  The locations are the following:
+Entertainment Venues
+- Beach
+- Broadway Theater
+- Casino
+- Circus Tent
+
+Stores & Services
+- Bank
+- Day Spa
+- Hotel
+- Restaurant
+- Supermarket
+- Service Station
+
+Government buildings
+- Hospital
+- Embassy
+- Military Base
+- Police Station
+- School
+- University
+
+Vehicles and transportation
+- Airplane
+- Ocean Liner
+- Passenger Train
+- Submarine
+
+Workplaces & religion
+- Cathedral
+- Corporate Party
+- Movie Studio
+
+Exotic & unusual locations
+- Crusader Army
+- Pirate Ship
+- Polar Station
+- Space Station
+
+*Create a public variable for the number of players.
+
+*Create a global variable for round. 
+
+*create global variable startGame
+
+*create global variable for timeLimit ?
+
+*Create a spySelector function using Math.random() to select spy. All other players are assigned role of not 
+spy (Not sure what to call it right now?); 
+
+*Create a roundTracker function to assign the round and keep the round from going above 5?  
+
+*create an endGame function;
+
+*When startGame is true, execute spySelector(), roundTracker(), assign location;
+
+*Create a questions function.  This allows user to select who they can ask a question to. Use a loop or 
+other conditional statement to assure that the number of questions per round equals the number of players.
+
+*The question function should create a variable that keeps track of who was the last person to ask the question.
+This will prevent the next questionaire from selecting the person they just questioned. 
+
+*Allow the spy to guess the location.  If not, 
+
+*Create restart game function.  Restart game will be triggered whenever the spy guesses the location, or there is a consensus
+on who the spy is. Restart function will set startGame to false, empty user array,  .
+

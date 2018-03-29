@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <form>
+        <label for="numberofusers">Click submit to begin game.</label>
+        <input type="text" id="numberofusers">
+        <input id="submit-button" type="submit" value="submit">
+    </form>
+    <script>
+        $(document).ready(function () {
+            var locations = ["Beach", "Broadway Theater", "Casino", "Circus Tent", "Bank",
+                "Day Spa", "Hotel", "Restaurant", "Supermarket", "Service Station", "Hospital",
+                "Embassy", "Military Base", "Police Station", "School", "University", "Airplane",
+                "Ocean Liner", "Passenger Train", "Submarine", "Cathedral", "Corporate Party",
+                "Movie Studio", "Crusader Army", "Pirate Ship", "Polar Station", "Space Station"
+            ];
+            var selectedLocation;
+            var startGame = false;
+            var numberOfPlayers;
+            var round;
+            var users = ["Joe", "Emily", "Michelle", "John", "Burt"]; //Users only created for demo purposes
+            var userRoles = {};
+            
+            //this will be modified later
+            $("#submit-button").on("click", function(){
+                startGame = true;
+            })
+
+            function spySelector(){
+                
+            }
+
+            function roundTracker(){
+
+            }
+            
+            //allows selected user to direct questions at another individual;
+            function userQuestions(){
+
+            }
+            
+            function restartGame(){
+                startGame = false;
+                userRoles = {};
+                users = [];
+            }
+
+            if(startGame){
+                selectedLocation = Math.round(Math.random() * locations.length);
+                spySelector();
+                roundTracker();
+            }
+
+        });
+    </script>
+</body>
+
+</html>
