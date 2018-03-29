@@ -11,9 +11,10 @@ firebase.initializeApp(config);
 var db = firebase.database();
 var names = ['Link','Mario','Zelda','Peach','Megaman','Samus','Cloud','Sephiroth'];
 var available, playing;
-var currentPlayer
+//local var to hold name of this user
+var currentPlayer, disconnect;
 
-//Initialize list of available and playing characters
+//Updates arrays of available and playing (occupied) players in real-time
 db.ref('roster').on('value', function(snapshot) {
 	available = [];
 	playing = [];
@@ -32,8 +33,12 @@ function resetDB() {
 	});
 }
 
+//index refers to index on available array
 function signOn(index) {
 	currentPlayer = available[index];
-	db.ref('roster/'+available[index]).set({occupied: true});
-	db.ref('roster/'+available[index]).onDisconnect().set({occupied: false});
+	//set occupied flag
+	db.ref('roster/'+available[index]+'/occupied').set(true);
+	//add disconnect listener to free slot
+	disconnect = db.ref('roster/'+currentPlayer+'/occupied').onDisconnect()
+	disconnect.set(false);
 }
