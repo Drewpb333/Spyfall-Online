@@ -26,23 +26,22 @@
     <br>
     <br>
     <form>
-        <label for="number-of-users">Click submit to begin game.</label>
-        <input type="text" id="number-of-users">
+        <label for="user-input">Enter your name and click submit to begin game.</label>
+        <input type="text" id="user-input">
         <input id="submit-button" type="submit" value="submit">
     </form>
     <script>
         $(document).ready(function () {
-            var locations = ["Beach", "Broadway Theater", "Casino", "Circus Tent", "Bank",
-                "Day Spa", "Hotel", "Restaurant", "Supermarket", "Hospital",
-                "Embassy", "Military Base", "Police Station", "University", "Airplane",
-                "Ocean Liner", "Passenger Train", "Submarine", "Cathedral", "Corporate Party",
-                "Movie Studio", "Crusader Army", "Pirate Ship", "Polar Station", "Space Station"
+            var locations = ["Beach", "Casino", "Circus Tent", "Bank", "Day Spa", "Hotel",
+                "Supermarket", "Hospital", "Military Base", "Police Station", "University",
+                "Airplane", "Submarine", "Cathedral", "Corporate Party", "Movie Studio",
+                "Crusader Army", "Pirate Ship", "Polar Station", "Space Station"
             ];
             var selectedLocation;
             var currentQuestioner;
             var round = 0;
-            var playerLimit = 5;
-            var users = ["Joe", "Emily", "Michelle", "John", "Burt"]; //Users only created for demo purposes
+            var playerLimit = 8;
+            var users = []; //Users only created for demo purposes
             var userRoles = {};
             var questioner;
             var questionSubmitted;
@@ -50,12 +49,27 @@
             var displayLocations = $("#display-location");
             var roundNumber = $("#round-number");
             var chatBox = $("#chat-box");
-            var userInput = $("#submit-button");
+            var userInput = $("#user-input");
+            var userInputButton = $("#submit-button");
+
+            function assignToLocalStorage(userName) {
+                for (var i = 1; i <= playerLimit; i++) {
+                    if (!localStorage.getItem(i)) {
+                        localStorage.setItem(i, userName);
+                        users.push(userName);
+                        console.log(localStorage.getItem(i));
+                        break;
+                    }
+                }
+                roundNumber.text("Sorry, all spots are taken.")
+            }
 
             //this will be modified later
-            $("#submit-button").on("click", function () {
+            userInputButton.on("click", function () {
                 event.preventDefault();
-                $("label[for='number-of-users']").text("Type question or response here");
+                $("label[for='user-input']").text("Type question or response here");
+                var userName = userInput.val().trim();
+                assignToLocalStorage(userName);
                 startGame();
             })
 
@@ -83,31 +97,27 @@
             //allows selected user to direct questions at another individual
             function userQuestions() {
                 // loops for one round
-                for (var i = 1; i < 6; i++){
+                for (var i = 1; i < users.length; i++) {
                     // put if statement here for user current questioner
-                    userInput.on("click", function() {
-                        chatBox.append(userInput.val().trim());
-                        
-                        questionSubmitted = true;
-                    });
-                    // put if statement questionSubmitted = true and user input is from responder
-                    userInput.on("click", function(){
+                    userInputButton.on("click", function () {
                         chatBox.append(userInput.val().trim());
 
-                        questionSubmitted = false;
+                        questionSubmitted = true;
+                        // put if statement questionSubmitted = true and user input is from responder
+                        if (questionSubmitted) {
+                            userInputButton.on("click", function () {
+                                chatBox.append(userInput.val().trim());
+
+                                questionSubmitted = false;
+                            })
+                        };
                     });
                 }
             }
 
-            function restartGame() {
-                startGame = false;
-                userRoles = {};
-                users = [];
-            }
-
             function displayUsersAndLocation() {
-                users.forEach(function (userName) {
-                    displayUsers.append("<button>" + userName + "</button>");
+                users.forEach(function (name) {
+                    displayUsers.append("<button>" + name + "</button>");
                 });
                 locations.forEach(function (loc) {
                     displayLocations.append("<button>" + loc + "</button>");
@@ -118,6 +128,9 @@
             function suddenDecision() {
                 console.log(suddenDecision);
             }
+
+
+
 
 
 
