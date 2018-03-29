@@ -3,14 +3,45 @@ html, body {
     padding-top: .5%;
 }
 
-body {
-    background: blue;
+input[type="text"]{
+    width: 65%;
+    margin-top: 8px;
+    opacity: .7;
+    cursor: default;
 }
+
+form {
+    cursor: default;
+    text-align: center;
+}
+
+input[type="submit"]{
+    width: 20%;
+    opacity: .7;
+    cursor: default;
+}
+body {
+    background: dimgrey;
+}
+
+#entryScreen {
+    margin: 0 auto;
+    float: none;
+}
+
+#logo {
+    font-family: 'Special Elite', cursive;
+    text-align: center;
+    font-size:  8em;
+    background: red;
+    opacity: .7;
+    cursor: default;
+}    
 
 .fill { 
     min-height: 100%;
     height: 100%;
-}
+}    
 
 #chatAndState {
     background: yellow;
