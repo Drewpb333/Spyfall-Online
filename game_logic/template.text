@@ -52,6 +52,7 @@ Exotic & unusual locations
 spy (Not sure what to call it right now?); 
 
 *Create a roundTracker function to assign the round and keep the round from going above 5?  
+roundTracker will use text() to show current round on screen.
 
 *create an endGame function;
 
