@@ -15,7 +15,7 @@ $(document).ready( function () {
       $(".submit").on('click', function(){
           var userInput= $(".userMessage").val().trim(); 
           console.log(userInput); 
-          database.ref().set({
+          database.ref('chatlog').set({
             message: userInput
           });
 
@@ -24,7 +24,7 @@ $(document).ready( function () {
         // Using .on("value", function(snapshot)) syntax will retrieve the data
     // from the database (both initially and every time something changes)
     // This will then store the data inside the variable "snapshot". We could rename "snapshot" to anything.
-    database.ref().on("value", function(snapshot) {
+    database.ref('chatlog').on("value", function(snapshot) {
 
         // Then we console.log the value of snapshot
         console.log(snapshot.val());
