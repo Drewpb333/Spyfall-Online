@@ -1,4 +1,3 @@
-// Initialize Firebase
 var config = {
 	apiKey: "AIzaSyAGNVQ9YDyUNSl_7RNF10MmNzHEJHYtOJE",
 	authDomain: "spyfall-e6768.firebaseapp.com",
@@ -9,48 +8,32 @@ var config = {
 };
 firebase.initializeApp(config);
 //var to hold auth object
-var auth = firebase.auth();
 var db = firebase.database();
+var names = ['Link','Mario','Zelda','Peach','Megaman','Samus','Cloud','Sephiroth'];
+var available, playing;
+var currentPlayer
 
-//pull roster from firebase db
-displayRoster();
-
-var user;
-$(document).ready(function() {
-	//click listener for sign-in button
-	$('form').submit(function(evt) {
-		//Prevent page refresh
-		evt.preventDefault();
-		//Firebase Anonymous Account Creation	
-		auth.signInAnonymously().catch(function(error) {
-			console.error(error.message);
-		});
-
-		//Once created, add to roster
-		auth.onAuthStateChanged(function(usr) {
-			if(usr) {
-				//Assign user's display name from form input
-				var dName = $('input:text').val().trim();
-				usr.updateProfile({displayName: dName});
-				user = usr;
-				console.log(user.displayName);	
-
-				//update roster
-				db.ref('roster/'+user.uid).set({uid: user.uid, displayName: user.displayName});
-				displayRoster();
-			}
-			else {
-				console.log('no user returned');
-			}
-		});
+//Initialize list of available and playing characters
+db.ref('roster').on('value', function(snapshot) {
+	available = [];
+	playing = [];
+	var obj = snapshot.val();	
+	names.forEach(function (player) {
+		obj[player].occupied ? playing.push(player) : available.push(player);
 	});
 });
 
-//Returns array of displayNames on roster
-function displayRoster() {
-	console.log(db.ref('roster/'));
+
+//FOR ADMIN USE ONLY; kicks all players out
+function resetDB() {
+	db.ref('roster').remove();
+	names.forEach(function (player) {
+		db.ref('roster/'+player).set({occupied:false});
+	});
 }
 
-function addUser() {
-	
+function signOn(index) {
+	currentPlayer = available[index];
+	db.ref('roster/'+available[index]).set({occupied: true});
+	db.ref('roster/'+available[index]).onDisconnect().set({occupied: false});
 }
