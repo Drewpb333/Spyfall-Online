@@ -14,7 +14,7 @@ db.ref('roster').on('value', function(snapshot) {
 		if(obj[player].occupied) {
 			$('#playing-list').append($('<button>').text(player));
 		} else {
-			$('#available-list').append($('<button>').text(player));
+			$('#available-list').append($('<button>').text(player).attr('class','available'));
 		}
 	});
 
@@ -25,6 +25,6 @@ db.ref('roster').on('value', function(snapshot) {
 	}
 });
 
-$(document).ready(function() {
+$(document).on('click','.available',function() {
+	signOn($(this).text());
 });
-
