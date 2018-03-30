@@ -108,11 +108,15 @@
                     
                     <div class="col-sm-5 fill" id="stateWindow">
                         <div class="row" id="spyOrNotBox">
-                            <p>#spyOrNotBox</p>
+                            <h1 id="playerAssignment">*SPY*</h1>
                         </div>
                         <div class="row" id="imageAndTimer">
-                            <div class="col-sm-5 col-xs-6" id="imageBox">#imageBox</div>
-                            <div class="col-sm-7 col-xs-6" id="timerBox">#timerBox</div>
+                            <div class="col-sm-5 col-xs-6" id="imageBox">
+                                <img class="img-responsive" src="https://comosaconnect.org/wp-content/uploads/2017/03/school.png" alt="School">
+                            </div>
+                            <div class="col-sm-7 col-xs-6" id="timerBox">#timerBox
+                                <p id="timer">00:00</p>
+                            </div>
                         </div>
                         <div class="row" id="locationsBox">
                             <p class="containerTitle">#locationsBox</p>
@@ -144,7 +148,8 @@
 
                 <div class="row fill" id="chatDiv">
                     <div class="col-sm-12" id="chatInput">
-                        <p>#chatInput</p>
+                        <button type="submit" id="textSubmit">Submit</button>
+                        <textarea name="chatInput" id="message" cols="30" rows="10"></textarea>
                     </div>
                 </div>
             </div>

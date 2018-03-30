@@ -9,6 +9,14 @@ body {
 
 }
 
+.img-responsive {
+    max-height: 100%;
+}
+
+img {
+    vertical-align: middle;
+}
+
 input[type="text"]{
     width: 65%;
     margin-top: 8px;
@@ -25,6 +33,10 @@ input[type="submit"]{
     width: 20%;
     opacity: .7;
     cursor: default;
+}
+
+#textSubmit {
+    margin-bottom: .5%;
 }
 
 #entryScreen {
@@ -65,7 +77,8 @@ input[type="submit"]{
 }
 
 .playerName {
-    width: 10%;
+    width: 24%;
+    margin-top: 1%;
 }
 
 #stateWindow {
@@ -77,12 +90,22 @@ input[type="submit"]{
     min-height: 100%;
     height: 100%;
     background: darkgoldenrod;
-    padding: 15px;
+    padding: 10px;
+}
+
+#message {
+    width: 100%;
+    height: 80%;
 }
 
 #spyOrNotBox {
     background: cyan;
     min-height: 20%;
+    text-align: center;
+}
+
+#playerAssignment {
+    font-size: 8vh;
 }
 
 #chatDiv {
@@ -102,9 +125,6 @@ input[type="submit"]{
     margin-top: 1%;
 }
 
-/* .message {
-} */
-
 #playersArray {
     min-height: 10%;
     background: brown;
@@ -120,11 +140,17 @@ input[type="submit"]{
 #imageBox {
     background: springgreen;
     min-height: 100%;
+    height: 100%;
+    text-align: -webkit-center;
 }
 
 #timerBox {
     background: seagreen;
     min-height: 100%;
+}
+
+#timer {
+    font-size: 8vh;
 }
 
 @media only screen and (max-width: 767px) {
@@ -146,14 +172,23 @@ input[type="submit"]{
         min-height: 10%;
     }
     
+    #playerAssignment {
+        font-size: 5vh;
+    }
+    
     #stateWindow {
-        margin-bottom: 20%;
+        margin-bottom: 25%;
     }
 
     #locationsBox {
         min-height: 60%;
     }
 
+    .playerName {
+        width: 24%;
+        margin-top: 0;
+    }
+    
     .locationButton{
         margin-top: .5%;
     }
@@ -161,10 +196,25 @@ input[type="submit"]{
         height: 80%;
     }
 
+    /* #imageBox {
+        white-space: inherit;
+    } */
+
     #chatAndState {
         background: yellow;
         min-height: 70%;
         height: 70%;
     } 
         
+}
+
+@media only screen and (min-width: 768px) {
+    #imageBox {
+        white-space: pre-line;
+    }
+}
+@media only screen and (min-width: 992px) {
+    #imageBox {
+        white-space: inherit;
+    }
 }
