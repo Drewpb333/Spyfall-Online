@@ -19,6 +19,20 @@ function initChat(logDiv, sendForm) {
 		//add message to firebase
 		chatroom.push({user: user, message: message, time: firebase.database.ServerValue.TIMESTAMP}); 
 		//clear forms
+		$(sendForm+'> input[name="username"]').val('');
+		$(sendForm+'> input[name="message"]').val('');
+
+		//Update logDiv container with messages
+		chatroom.on('child_added',function (snapshot) {
+			var msg_in = snapshot.val();
+			var msg_out = $('<div class="message">');
+
+			msg_out.append($('<span class="chat-user">').text(msg_in.user));
+			msg_out.append($('<span class="chat-text">').text(msg_in.message));
+
+			$(logDiv).append(msg_out);
+		});
+
 	});
 }
 
