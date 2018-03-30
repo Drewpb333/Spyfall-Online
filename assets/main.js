@@ -1,3 +1,5 @@
+//Dummy variable to test chat app
+var gameOn = false;
 
 //Dynamicaly update list of available and occupied players
 db.ref('roster').on('value', function(snapshot) {
