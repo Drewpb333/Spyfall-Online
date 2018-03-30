@@ -50,7 +50,11 @@ $(document).ready( function () {
 
 } ) 
 
-
+//Notes:
+//It seems firebase only keeps track of the last message submitted. Can you change it to keep a log of messages?
+//Now that the players app is complete, try to incorporate the ability to only allow the player who's turn it is to submit a message.
+//I already did this but ensure all messages are stored in the 'chatlog' tree of firebase db, otherwise it will overwrite the game data.
+//Other than that great work! I had fun talking smack to myself over chat.
 
 
 
