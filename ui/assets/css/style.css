@@ -179,7 +179,7 @@ input[type="submit"]{
     }
     
     #stateWindow {
-        margin-bottom: 25%;
+        margin-bottom: 38%;
     }
 
     #locationsBox {
@@ -195,7 +195,7 @@ input[type="submit"]{
         margin-top: .5%;
     }
     #chatAndPlayers {
-        height: 80%;
+        height: 100%;
     }
 
     /* #imageBox {
