@@ -11,17 +11,19 @@ var locations = ["Beach", "Casino", "Circus Tent", "Bank", "Day Spa", "Hotel",
     "Crusader Army", "Pirate Ship", "Polar Station", "Space Station"
 ];
 var selectedLocation;
-var currentQuestioner;
 var round = 1;
 var playerLimit = 8;
 var users = ["Joe", "Rick", "John", "Jane", "Mary"]; //Users only created for demo purposes
 var userRoles = {};
+// needed for allowing only one person to ask a question at a time
 var questioner;
+// boolean for allowing a response
 var questionSubmitted;
 var displayUsers = $("#playersArray");
 var displayLocations = $("#locationsBox");
 var roundNumber = $("#round-number");
 var chatBox = $("#chatWindow");
+//text value of 
 var userInput = $("#user-input");
 var userInputButton = $("#submit-button");
 var spyOrNotBox = $("#spyOrNotBox");
@@ -105,7 +107,7 @@ function scoreTabulator() {
 // the score
 
 // assigns user input to user name, stores it into local storage(for demo purposes), and 
-// will later store it in object using firebase
+// will later store it in an object using firebase
 userInputButton.on("click", function () {
     event.preventDefault();
     $("label[for='user-input']").text("Type question or response here");
@@ -125,9 +127,11 @@ function nextRound() {
     if (round > 5) {
         endGame();
     }
+    else { 
     roundNumber.text("Round: " + round);
     // selects new group of "good guys" and "spies"
     startRound();
+    }
 }
 
 function restartGame() {
