@@ -3,6 +3,12 @@ html, body {
     /* padding-top: .5%; */
 }
 
+body {
+    background: dimgrey;
+    font-family: 'Special Elite', cursive;
+
+}
+
 input[type="text"]{
     width: 65%;
     margin-top: 8px;
@@ -19,9 +25,6 @@ input[type="submit"]{
     width: 20%;
     opacity: .7;
     cursor: default;
-}
-body {
-    background: dimgrey;
 }
 
 #entryScreen {
@@ -55,10 +58,14 @@ body {
 
 #chatWindow {
     background: darkorchid;
-    padding: 15px;
+    padding: 20px;
     min-height: 90%;
     height: 90%;
     overflow: scroll;  
+}
+
+.playerName {
+    width: 10%;
 }
 
 #stateWindow {
@@ -86,11 +93,22 @@ body {
 #locationsBox {
     background: coral;
     min-height: 55%;
+    text-align: center;
+    overflow: scroll;
 }
+
+.locationButton {
+    width: 49%;
+    margin-top: 1%;
+}
+
+/* .message {
+} */
 
 #playersArray {
     min-height: 10%;
     background: brown;
+    text-align: center;
 }
 
 #imageAndTimer {
@@ -112,6 +130,7 @@ body {
 @media only screen and (max-width: 767px) {
     #chatWindow {
         background: red;
+        padding: 30px;
     }
 
     #chatInput {
@@ -131,6 +150,13 @@ body {
         margin-bottom: 20%;
     }
 
+    #locationsBox {
+        min-height: 60%;
+    }
+
+    .locationButton{
+        margin-top: .5%;
+    }
     #chatAndPlayers {
         height: 80%;
     }
