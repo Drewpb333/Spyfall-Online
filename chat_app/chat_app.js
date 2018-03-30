@@ -21,25 +21,22 @@ $(document).ready( function () {
 
       } ) 
 
-        // Using .on("value", function(snapshot)) syntax will retrieve the data
-    // from the database (both initially and every time something changes)
-    // This will then store the data inside the variable "snapshot". We could rename "snapshot" to anything.
+        
     database.ref().on("value", function(snapshot) {
 
-        // Then we console.log the value of snapshot
+       
         console.log(snapshot.val());
   
-        // Then we change the html associated with the number.
+        
         $(".chatbox").append("<p> "+ snapshot.val().message +" </p>"); 
   
-        // Then update the clickCounter variable with data from the database.
+       
        
   
-      // If there is an error that Firebase runs into -- it will be stored in the "errorObject"
-      // Again we could have named errorObject anything we wanted.
+      
       }, function(errorObject) {
   
-        // In case of error this will print the error
+      
         console.log("The read failed: " + errorObject.code);
       });
     
