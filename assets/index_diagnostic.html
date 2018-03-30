@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Spyfall Online</title>
+	<!--import jQuery first-->
+	<script src="jquery-3.3.1.min.js"></script>
+	<!--import Firebase-->
+	<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+	<!--import Firebase Player Control-->
+	<script src="../players/player_control.js"></script>
+	<!--import Bootstrap-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<!--import chat app-->
+	<script src="../chat_app/chat_app2.js"></script>
+	<!--import main.js-->
+	<script src="main.js"></script>
+</head>
+<body>
+	<p>Available PLayers:</p>
+	<div id="available-list"></div>
+	<p>Taken PLayers:</p>
+	<div id="playing-list"></div>
+	<p>Your current player: <span id="currentPlayer"></span></p>
+	<hr>
+	<div id="chatroom" style='border:1px solid black'></div>
+	<form id="send-msg" action=""></form>
+</body>
+</html>
