@@ -34,7 +34,8 @@ function resetDB() {
 }
 
 //index refers to index on available array
-function signOn(index) {
+function signOn(name) {
+	var index = available.indexOf(name);
 	currentPlayer = available[index];
 	//set occupied flag
 	db.ref('roster/'+available[index]+'/occupied').set(true);
