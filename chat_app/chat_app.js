@@ -15,14 +15,16 @@ $(document).ready( function () {
       $(".submit").on('click', function(){
           var userInput= $(".userMessage").val().trim(); 
           console.log(userInput); 
-          database.ref().set({
+          database.ref('chatlog').set({
             message: userInput
           });
 
       } ) 
 
-        
-    database.ref().on("value", function(snapshot) {
+        // Using .on("value", function(snapshot)) syntax will retrieve the data
+    // from the database (both initially and every time something changes)
+    // This will then store the data inside the variable "snapshot". We could rename "snapshot" to anything.
+    database.ref('chatlog').on("value", function(snapshot) {
 
        
         console.log(snapshot.val());
@@ -47,7 +49,11 @@ $(document).ready( function () {
 
 } ) 
 
-
+//Notes:
+//It seems firebase only keeps track of the last message submitted. Can you change it to keep a log of messages?
+//Now that the players app is complete, try to incorporate the ability to only allow the player who's turn it is to submit a message.
+//I already did this but ensure all messages are stored in the 'chatlog' tree of firebase db, otherwise it will overwrite the game data.
+//Other than that great work! I had fun talking smack to myself over chat.
 
 
 
