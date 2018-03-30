@@ -20,7 +20,7 @@ $(document).ready(function () {
     var userInputButton = $("#submit-button");
     var spyOrNotBox = $("#spyOrNotBox");
 
-    //for demo purposes
+    //for demo purposes for storing user names and possibly scores, round, etc.
     function assignToLocalStorage(userName) {
         for (var i = 1; i <= playerLimit; i++) {
             if (!localStorage.getItem(i)) {
@@ -29,10 +29,10 @@ $(document).ready(function () {
                 console.log(localStorage.getItem(i));
                 break;
             }
-        }     
+        }
     }
 
-    // The next three funtions are for selecting gameplay.  They display users and locations as buttons,
+    // The next six funtions are for selecting gameplay.  They display users and locations as buttons,
     // select a spy and a first questioner, and handle questions between users
 
     function displayUsersAndLocation() {
@@ -80,9 +80,23 @@ $(document).ready(function () {
         }
     }
 
-    function 
+    //this function will allow the spy to reveal who he is and guess the location. 
+    function spyChoice() {
 
-    //Functions listed below are for starting game, restarting game, 
+    }
+
+    //this function will allow the good guys to try to come to a consensus and select the spy
+    function goodGuyChoice() {
+
+    }
+
+    //will add score to each individual user
+    function scoreTabulator() {
+
+    }
+
+    //Functions listed below are for starting game, restarting game, progressing to next round, and displaying
+    // the score
 
     // assigns user input to user name, stores it into local storage(for demo purposes), and 
     // will later store it in object using firebase
@@ -100,14 +114,14 @@ $(document).ready(function () {
         displayUsersAndLocation();
     }
 
-    function nextRound(){
+    function nextRound() {
         round++;
         if (round > 5) {
             endGame();
         }
         roundNumber.text("Round: " + round);
         // selects new group of "good guys" and "spies"
-        startRound();    
+        startRound();
     }
 
     function restartGame() {
@@ -117,7 +131,7 @@ $(document).ready(function () {
     }
 
     //will display user scores to chatBox.  I need code for acessing firebase for appending scores.
-    function endGame(){
+    function endGame() {
         chatBox.append();
     }
 });
