@@ -1,0 +1,222 @@
+html, body {
+    height: 100%;
+    /* padding-top: .5%; */
+}
+
+body {
+    background: dimgrey;
+    font-family: 'Special Elite', cursive;
+
+}
+
+.img-responsive {
+    max-height: 100%;
+}
+
+img {
+    vertical-align: middle;
+}
+
+input[type="text"]{
+    width: 65%;
+    margin-top: 8px;
+    opacity: .7;
+    cursor: default;
+}
+
+form {
+    cursor: default;
+    text-align: center;
+}
+
+input[type="submit"]{
+    width: 20%;
+    opacity: .7;
+    cursor: default;
+}
+
+#textSubmit {
+    margin-bottom: .5%;
+}
+
+#entryScreen {
+    margin: 0 auto;
+    float: none;
+}
+
+#logo {
+    font-family: 'Special Elite', cursive;
+    text-align: center;
+    font-size:  8em;
+    background: red;
+    opacity: .7;
+    cursor: default;
+}    
+
+.fill { 
+    min-height: 100%;
+    height: 100%;
+}    
+
+#chatAndState {
+    background: yellow;
+    min-height: 80%;
+    height: 80%;
+}
+
+#chatAndPlayers {
+    height: 100%;
+}
+
+#chatWindow {
+    background: darkorchid;
+    padding: 20px;
+    min-height: 90%;
+    height: 90%;
+    overflow: scroll;  
+}
+
+.playerName {
+    width: 24%;
+    margin-top: 1%;
+}
+
+#stateWindow {
+    background: darkcyan;
+    min-height: 100%;
+}
+
+#chatInput {
+    min-height: 100%;
+    height: 100%;
+    background: darkgoldenrod;
+    padding: 10px;
+}
+
+#message {
+    width: 100%;
+    height: 80%;
+}
+
+#spyOrNotBox {
+    background: cyan;
+    min-height: 20%;
+    text-align: center;
+}
+
+#playerAssignment {
+    font-size: 8vh;
+}
+
+#chatDiv {
+    height: 20%;
+    min-height: 20%;
+}
+
+#locationsBox {
+    background: coral;
+    min-height: 55%;
+    text-align: center;
+    overflow: scroll;
+}
+
+.locationButton {
+    width: 49%;
+    margin-top: 1%;
+}
+
+#playersArray {
+    min-height: 10%;
+    background: brown;
+    text-align: center;
+}
+
+#imageAndTimer {
+    min-height: 25%;
+    height: 25%;
+    background: violet;
+}
+
+#imageBox {
+    background: springgreen;
+    min-height: 100%;
+    height: 100%;
+    text-align: -webkit-center;
+}
+
+#timerBox {
+    background: seagreen;
+    min-height: 100%;
+    text-align: center;
+}
+
+#timer {
+    font-size: 7vh;
+    text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+    #chatWindow {
+        background: red;
+        padding: 30px;
+    }
+
+    #chatInput {
+        height: 20%;
+        min-height: 20%;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        margin-left: 15px;
+    }
+
+    #spyOrNotBox {
+        min-height: 10%;
+    }
+    
+    #playerAssignment {
+        font-size: 5vh;
+    }
+    
+    #stateWindow {
+        margin-bottom: 38%;
+    }
+
+    #locationsBox {
+        min-height: 60%;
+    }
+
+    .playerName {
+        width: 24%;
+        margin-top: 0;
+    }
+    
+    .locationButton{
+        margin-top: .5%;
+    }
+    #chatAndPlayers {
+        height: 100%;
+    }
+
+    /* #imageBox {
+        white-space: inherit;
+    } */
+
+    #chatAndState {
+        background: yellow;
+        min-height: 70%;
+        height: 70%;
+    } 
+        
+}
+
+@media only screen and (min-width: 768px) {
+    #imageBox {
+        white-space: pre-line;
+    }
+}
+@media only screen and (min-width: 992px) {
+    #imageBox {
+        white-space: inherit;
+    }
+}

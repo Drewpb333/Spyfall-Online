@@ -1,31 +1,8 @@
-var config = {
-	apiKey: "AIzaSyAGNVQ9YDyUNSl_7RNF10MmNzHEJHYtOJE",
-	authDomain: "spyfall-e6768.firebaseapp.com",
-	databaseURL: "https://spyfall-e6768.firebaseio.com",
-	projectId: "spyfall-e6768",
-	storageBucket: "spyfall-e6768.appspot.com",
-	messagingSenderId: "1066986603676"
-};
-firebase.initializeApp(config);
-var db = firebase.database();
-var available, playing;
-//local var to hold name of user of this session; empty of not playing
-var currentPlayer = '';
-//disconnect object for firebase to sign off on disconnect
-var disconnect;
-var names = ['Link','Mario','Zelda','Peach','Megaman','Samus','Cloud','Sephiroth'];
-
-//----------------------------------Universal----------------------------------------------------
-
-function resetGame() {
-	db.ref('players').remove();
-	names.forEach(function (player) {
-		db.ref('players/'+player).set({occupied:false, ready:false});
-	});
-	db.ref('game/phase').set('lobby');
+function renderLobby() {
+	$('body').load('ui/lobby.html');
+	renderPlayerList('#player-list');
 }
 
-//----------------------------------Game Lobby---------------------------------------------------
 
 //Join the game and take a player slot
 function signOn(name) {
@@ -77,7 +54,7 @@ function signOff() {
 	</tr>
 </table>
 */
-function renderLobby(container) {
+function renderPlayerList(container) {
 	//create listener for value changes
 	db.ref('players').on('value',function(snapshot) {
 		//Initiate table and add header
