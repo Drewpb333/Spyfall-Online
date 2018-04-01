@@ -1,32 +1,213 @@
+
+/* Sets a height relative to the viewport */
 html, body {
     height: 100%;
-    /* padding-top: .5%; */
 }
 
 body {
     background: dimgrey;
     font-family: 'Special Elite', cursive;
-
+    border-color: #403F4C;
 }
 
-.img-responsive {
-    max-height: 100%;
+button {
+    background: #D0CCD0;
 }
 
+/* Keeps the panels at full dimensions, regardless how populated they are*/
+.fill { 
+    min-height: 100%;
+    height: 100%;
+}    
+
+
+/* MAIN GAME SCREEN */
+
+/* Defines the dimensions of the wrapper for chatView and gameState panels */
+#chatAndState {
+    min-height: 80%;
+    height: 80%;
+}
+
+/* Styles and defines the dimensions of the wrapper for chat window and player names */
+#chatAndPlayers {
+    height: 100%;
+    border-radius: 10px;
+    border: solid #0D1321;
+}
+
+/* Styles and defines dimensions of the chat window */
+#chatWindow {
+    background: whitesmoke;
+    padding: 20px;
+    min-height: 90%;
+    height: 90%;
+    overflow: scroll; 
+    border: solid #0D1321; 
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: inset 0px 0px 20px 2px;
+}
+
+/* Styles and defines dimensions of the box showing all players */
+#playersArray {
+    min-height: 10%;
+    background: #E84855;
+    text-align: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: inset 0px 0px 20px 2px;
+}
+
+/* Styles and defines dimensions of each player name button */
+.playerName {
+    width: 24%;
+    padding: 1px;
+    border: solid #0D1321;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 20px 2px;
+}
+
+/* Styles and defines dimensions of the wrapper holding all game state panels */
+#stateWindow {
+    background: #0D1321;
+    min-height: 100%;
+    border: solid #0D1321;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px 0px;
+    /* box-shadow: inset 0px 0px 20px 2px; */
+}
+
+/* Styles and defines dimensions of the state showing player's role in game (spy or not) */
+#spyOrNotBox {
+    background: #E84855;
+    min-height: 20%;
+    height: 20%;
+    text-align: center;
+    border: solid #0D1321;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: inset 0px 0px 20px 2px;
+}
+
+/* Affects the words indicating panel contents */
+#panelTitle {
+    font-size: 20px;
+}
+
+/* Styles each player assignment status */
+#playerAssignment {
+    font-size: 8vh;
+    color: #F9DC5C;
+}
+
+/* Styles and defines dimensions of the wrapper around location image box and the timer box */
+#imageAndTimer {
+    min-height: 25%;
+    height: 25%;
+    /* background: violet; */
+}
+
+/* Styles and defines dimensions of the div holding the image */
+#imageBox {
+    background: #E84855;
+    min-height: 100%;
+    height: 100%;
+    text-align: -webkit-center;
+    border: solid;
+    box-shadow: inset 0px 0px 20px 2px;
+}
+
+/* An attempt to keep the images floating in vertical center, to limited success */
 img {
     vertical-align: middle;
 }
 
+/* Adjusts bootstrap class and keeps responsive images from pushing container boundaries */
+.img-responsive {
+    max-height: 100%;
+}    
+
+/* Styles and defines dimensions of the timer box */
+#timerBox {
+    background: #E84855;
+    min-height: 100%;
+    text-align: center;
+    border: solid;
+    box-shadow: inset 0px 0px 20px 2px;
+}
+
+/* Styles and defines dimensions of the time itself */
+#timer {
+    font-size: 7vh;
+    text-align: center;
+    color: #F9DC5C;
+}
+
+/* Styles and defines dimensions of the box holding location possibilities */
+#locationsBox {
+    background: #E84855;
+    min-height: 55%;
+    text-align: center;
+    overflow: scroll;
+    border: solid;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: inset 0px 0px 20px 2px;
+}
+
+/* Styles and defines dimensions of each player name */
+.locationButton {
+    width: 49%;
+    border-radius: 3px;
+    border-color: black;
+    box-shadow: inset 0px 0px 20px 2px;
+}
+
+/* Defines dimensions of wrapper each player's chat entry message */
+#chatDiv {
+    height: 20%;
+    min-height: 20%;
+    box-shadow: 10px 10px 20px 0px;
+}
+
+/* Styles and defines dimensions of the wrapper holding the chat submit box */
+#chatInput {
+    min-height: 100%;
+    height: 100%;
+    background: #E84855;
+    padding: 10px;
+    border: solid;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 20px 2px;
+}
+
+/* Styles and defines dimensions of chat message entry */
+#message {
+    width: 100%;
+    height: 80%;
+    border: solid;
+    padding: 5px;
+    background: whitesmoke;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 20px 2px;
+}
+
+
+/* GAME LOBBY SCREEN */
+/* Affects the text within the chat entry form */
+#textSubmit {
+    margin-bottom: .5%;
+    border: solid;
+    border-radius: 5px;
+}
+
+/* Affects the text within input boxes */
 input[type="text"]{
     width: 65%;
     margin-top: 8px;
     opacity: .7;
     cursor: default;
-}
-
-form {
-    cursor: default;
-    text-align: center;
 }
 
 input[type="submit"]{
@@ -35,16 +216,20 @@ input[type="submit"]{
     cursor: default;
 }
 
-#textSubmit {
-    margin-bottom: .5%;
-}
+/* Affects gameLobby form holding new players */
+form {
+    cursor: default;
+    text-align: center;
+}    
 
+/* Affects entry screen text */
 #entryScreen {
     margin: 0 auto;
     float: none;
     text-align: center;
 }
 
+/* Makes the logo look good */
 #logo {
     font-family: 'Special Elite', cursive;
     text-align: center;
@@ -54,114 +239,16 @@ input[type="submit"]{
     cursor: default;
 }    
 
-.fill { 
-    min-height: 100%;
-    height: 100%;
-}    
+/* Media Queries to handle changes in screen sizes */
 
-#chatAndState {
-    background: yellow;
-    min-height: 80%;
-    height: 80%;
-}
-
-#chatAndPlayers {
-    height: 100%;
-}
-
-#chatWindow {
-    background: darkorchid;
-    padding: 20px;
-    min-height: 90%;
-    height: 90%;
-    overflow: scroll;  
-}
-
-.playerName {
-    width: 24%;
-    margin-top: 1%;
-}
-
-#stateWindow {
-    background: darkcyan;
-    min-height: 100%;
-}
-
-#chatInput {
-    min-height: 100%;
-    height: 100%;
-    background: darkgoldenrod;
-    padding: 10px;
-}
-
-#message {
-    width: 100%;
-    height: 80%;
-}
-
-#spyOrNotBox {
-    background: cyan;
-    min-height: 20%;
-    text-align: center;
-}
-
-#playerAssignment {
-    font-size: 8vh;
-}
-
-#chatDiv {
-    height: 20%;
-    min-height: 20%;
-}
-
-#locationsBox {
-    background: coral;
-    min-height: 55%;
-    text-align: center;
-    overflow: scroll;
-}
-
-.locationButton {
-    width: 49%;
-    margin-top: 1%;
-}
-
-#playersArray {
-    min-height: 10%;
-    background: brown;
-    text-align: center;
-}
-
-#imageAndTimer {
-    min-height: 25%;
-    height: 25%;
-    background: violet;
-}
-
-#imageBox {
-    background: springgreen;
-    min-height: 100%;
-    height: 100%;
-    text-align: -webkit-center;
-}
-
-#timerBox {
-    background: seagreen;
-    min-height: 100%;
-    text-align: center;
-}
-
-#timer {
-    font-size: 7vh;
-    text-align: center;
-}
-
+/* For screens narrower than 768px */
 @media only screen and (max-width: 767px) {
+    /* Alters chatWindow padding slightly */
     #chatWindow {
-        background: red;
         padding: 30px;
     }
 
+    /* Alters input dimensions and sets it to a fixed bottom window */
     #chatInput {
         height: 20%;
         min-height: 20%;
@@ -171,53 +258,72 @@ input[type="submit"]{
         margin-left: 15px;
     }
 
+    /* Alters player status box slightly */
     #spyOrNotBox {
         min-height: 10%;
     }
     
+    /* Alters player assightment text slightly */
     #playerAssignment {
         font-size: 5vh;
     }
     
+    /* Alters the state wrapper dimensions slightly */
     #stateWindow {
         margin-bottom: 38%;
     }
 
+    /* Alters the locations box dimensions slightly */
     #locationsBox {
-        min-height: 60%;
+        min-height: 80%;
+        /* height: 60%; */
     }
 
+    /* Alters player name buttons dimensions slightly */
     .playerName {
         width: 24%;
         margin-top: 0;
     }
     
+    /* Alters styling of location buttons slightly */
     .locationButton{
         margin-top: .5%;
+        font-size: large;
     }
+
+    /* Alters chat and players wrapper dimensions */
     #chatAndPlayers {
         height: 100%;
     }
 
-    /* #imageBox {
-        white-space: inherit;
-    } */
-
+    /* Alters chat and state wrapper dimensions slightly */
     #chatAndState {
-        background: yellow;
         min-height: 70%;
         height: 70%;
     } 
         
 }
 
+/* A special set of queries for a few problematic image and text display issues */
 @media only screen and (min-width: 768px) {
+    /* Helps to keep the image vertically centered */
     #imageBox {
         white-space: pre-line;
     }
+
+    /* Helps keep the text of the clock fit inside the window */
+    #timer {
+        font-size: 5vh;
+    }
 }
 @media only screen and (min-width: 992px) {
+    /* Helps to keep the image vertically centered */
     #imageBox {
         white-space: inherit;
+    }
+
+    /* Helps keep the text of the clock fit inside the window */
+    #timer {
+        font-size: 7vh;
     }
 }
