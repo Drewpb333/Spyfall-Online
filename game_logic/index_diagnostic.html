@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Spyfall Online</title>
 	<!--import jQuery first-->
-	<script src="/assets/jquery-3.3.1.min.js"></script>
+	<script src="../assets/jquery-3.3.1.min.js"></script>
 	<!--import Firebase-->
 	<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 	<!--import Bootstrap-->
@@ -14,6 +14,14 @@
 	<script src="logic2.js"></script>
 </head>
 <body>
-	
+	<p>Available PLayers:</p>
+	<div id="available-list"></div>
+	<p>Taken PLayers:</p>
+	<div id="playing-list"></div>
+	<p>Your current player: <span id="currentPlayer"></span></p>
+	<hr>
+	<div id="chatroom" style='border:1px solid black'></div>
+	<form id="send-msg" action=""></form>
+	<div id="lobby"></div>
 </body>
 </html>
