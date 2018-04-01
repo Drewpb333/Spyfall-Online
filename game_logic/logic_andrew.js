@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Main issues that need to be resolved:
 // *Find a way to identify spy and allow him to be the only one to choose a location based on button click
 // *When the spy decides to identify a location, there should be a way to stop the round, show everyone that he 
@@ -144,3 +145,5 @@ function restartGame() {
 function endGame() {
     chatBox.append();
 }
+=======
+>>>>>>> 4c943799565bf7a655299585f871b3e8fa459d99
