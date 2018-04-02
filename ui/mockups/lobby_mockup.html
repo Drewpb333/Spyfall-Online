@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Game Lobby</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../style.css">
         <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
     </head>
 
@@ -19,7 +19,67 @@
                     <br><br>
                     <h1 id="logo">Spy vs Spies</h1>
 
-                    <form class="form-inline">
+                    <table class="table lobby-list">
+                        <tr>
+                            <th class="lobbyTableHeaders">Players</th>
+                            <th class="lobbyTableHeaders">Ready</th>
+                        </tr>
+
+                        <tr>
+                            <td><input class="lobbyPlayerName" type="button" value="Link"></td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="joinedPlayerName">Luigi</td>
+                            <td><input type="checkbox" disabled=""></td>
+                        </tr>
+
+                        <tr>
+
+                            <td class="own-player">Mario</td>
+                            <td><input type="checkbox" id="check-ready" disabled=""></td>
+                        </tr>
+
+                    </table>
+
+                    <div class="chatbox">
+                        <div class="message">
+                            <span class="chat-user">Link</span>: <span class="chat-text">Hello, Zelda!</span>
+                        </div>
+                        <div class="message">
+                            <span class="chat-user">Zelda</span>: <span class="chat-text">Stop stalking me!</span>
+                        </div>
+                        <div class="message">
+                            <span class="chat-user">Mario</span>: <span class="chat-text">I'm single! and ready to mingle...</span>
+                        </div>
+                        <div class="message">
+                            <span class="chat-user">Megaman</span>: <span class="chat-text">I like to shoot things</span>
+                        </div>
+                        <div class="message">
+                            <span class="chat-user">Megaman</span>: <span class="chat-text">Bang Bang</span>
+                        </div>
+                        <div class="message">
+                            <span class="chat-user">Cloud</span>: <span class="chat-text">Hello guys!</span>
+                        </div>
+                        <div class="message">
+                            <span class="chat-user">Mario</span>: <span class="chat-text">Test</span>
+                        </div>
+                        <div class="message">
+                            <span class="chat-user">Sephiroth</span>: <span class="chat-text">My turn!</span>
+                        </div>
+                        <div class="message">
+                            <span class="chat-user">Link</span>: <span class="chat-text">Wubba lub dub dub</span>
+                        </div>
+                    </div>
+
+                    <form id="send-form"><input id="lobbyChatInput" type="text" name="message"><input type="submit" disabled=""></form>
+
+                    <script>
+                        var currentPlayer = 'Link'
+                        initChat('.chatbox','#send-form');
+                    </script>
+                    <!-- <form class="form-inline">
                         <input type="text" class="newPlayerName" placeholder="Enter your name to join the game...">
                         <input type="submit" class="newPlayerSubmit" value="Join!">
 
@@ -43,7 +103,7 @@
                         
                         <input type="text" class="newPlayerName" placeholder="Enter your name to join the game...">
                         <input type="submit" class="newPlayerSubmit" value="Join!">
-                    </form>
+                    </form> -->
                 </div>
             </div>
 
