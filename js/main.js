@@ -162,7 +162,7 @@ function renderPlayerList(container) {
 	db.ref('players').on('value',function(snapshot) {
 		//Initiate table and add header
 		var table = $('<table>').attr('class','table lobby-list');
-		table.append('<tr><th>Players</th><th>Ready</th><tr>');
+		table.append('<tr><th class="lobbyTableHeaders">Players</th><th class="lobbyTableHeaders">Ready</th><tr>');
 		//iterate through player properties from firebase
 		snapshot = snapshot.val();
 		var list = Object.keys(snapshot);
@@ -175,14 +175,14 @@ function renderPlayerList(container) {
 			if (currentPlayer != '') { //Playing
 				tdPlayer.text(list[i]);
 				if (list[i] == currentPlayer) { //own player
-					tdPlayer.addClass('class','own-player');
+					tdPlayer.addClass('class','own-player btn btn-success');
 					readyBox.attr('id','check-ready').removeAttr('disabled');
 				}
 			} else { //Not playing
 				if(snapshot[list[i]].occupied) { //occupied
-					tdPlayer.append('<input type="button" value="'+list[i]+'" class="join-game joinedPlayerName" disabled>');
+					tdPlayer.append('<input type="button" value="'+list[i]+'" class="join-game joinedPlayerName btn" disabled>');
 				} else { //available
-					tdPlayer.append('<input type="button" value="'+list[i]+'" class="join-game" >');
+					tdPlayer.append('<input type="button" value="'+list[i]+'" class="join-game btn btn-default lobbyPlayerName" >');
 				}
 			}
 			if (snapshot[list[i]].ready) {
@@ -196,7 +196,7 @@ function renderPlayerList(container) {
 		$(container).empty();
 		$(container).append(table);
 		if (currentPlayer!='') {
-			$('#player-list').append('<input type="button" id="sign-off" value="Sign Off">');
+			$('#player-list').append('<input type="button" id="sign-off" class="btn btn-danger" value="Sign Off">');
 		}
 	});
 }
