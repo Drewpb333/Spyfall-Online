@@ -8,29 +8,52 @@ function renderLobby() {
 function signOn(name) {
 	db.ref('players/'+name+'/occupied').once('value', function (snapshot) {
 		var occupied = snapshot.val();
-		if (occupied) {
+		if (occupied || currentPlayer!='') {
 			console.log("name doesn't exist or is taken.");
 		} else {
 			currentPlayer = name;
 			//set occupied flag
 			db.ref('players/'+currentPlayer+'/occupied').set(true);
 			//add disconnect listener to free slot
-			disconnect = db.ref('players/'+currentPlayer+'/occupied').onDisconnect()
-			disconnect.set(false);
+			disconnectOccupied = db.ref('players/'+currentPlayer+'/occupied').onDisconnect()
+			disconnectOccupied.set(false);
+			disconnectReady = db.ref('players/'+currentPlayer+'/ready').onDisconnect()
+			disconnectReady.set(false);
 		}
 	});
 }
 
 //Quit the game, freeing up the player slot
 function signOff() {
-	if (names.indexOf(currentPlayer)>-1) {
+	if (currentPlayer!='') {
 		var tmp = currentPlayer;
 		currentPlayer = '';
 		db.ref('players/'+tmp+'/occupied').set(false);
-		disconnect.cancel();
+		db.ref('players/'+tmp+'/ready').set(false);
+		disconnectOccupied.cancel();
+		disconnectReady.cancel();
 	} else {console.log('signoff error');}
 }
 
+//Create listeners to join game
+$(document).on('click','.join-game', function() {
+	signOn($(this).val());
+});
+
+//Listener to sign off
+$(document).on('click','#sign-off', function() {
+	signOff();
+	$('#sign-off').remove();
+});
+
+//Listener to check ready
+$(document).on('change','#check-ready', function() {
+	if($(this).is(':checked')) {
+		db.ref('players/'+currentPlayer+'/ready').set(true);
+	} else {
+		db.ref('players/'+currentPlayer+'/ready').set(false);
+	}
+});
 /*
 <table class="lobby-list">
 	<tr>
@@ -45,12 +68,12 @@ function signOff() {
 	----------------Joined-----------------
 	<tr>
 		<td>Mario</td>
-		<td><input type="checkbox"></td>
+		<td><input type="checkbox" disabled></td>
 	</tr>
 	----------------Joined, Own player-----------------
 	<tr>
 		<td class="own-player">Mario</td>
-		<td><input type="checkbox"></td>
+		<td><input type="checkbox" id="check-ready"></td>
 	</tr>
 </table>
 */
@@ -73,13 +96,13 @@ function renderPlayerList(container) {
 				tdPlayer.text(list[i]);
 				if (list[i] == currentPlayer) { //own player
 					tdPlayer.attr('class','own-player');
-					readyBox.removeAttr('disabled');
+					readyBox.attr('id','check-ready').removeAttr('disabled');
 				}
 			} else { //Not playing
 				if(snapshot[list[i]].occupied) { //occupied
-					tdPlayer.append('<input type="button" value="'+list[i]+'" disabled>');
+					tdPlayer.append('<input type="button" value="'+list[i]+'" class="join-game" disabled>');
 				} else { //available
-					tdPlayer.append('<input type="button" value="'+list[i]+'">');
+					tdPlayer.append('<input type="button" value="'+list[i]+'" class="join-game" >');
 				}
 			}
 			if (snapshot[list[i]].ready) {
@@ -92,5 +115,8 @@ function renderPlayerList(container) {
 		}
 		$(container).empty();
 		$(container).append(table);
+		if (currentPlayer!='') {
+			$('#player-list').append('<input type="button" id="sign-off" value="Sign Off">');
+		}
 	});
 }

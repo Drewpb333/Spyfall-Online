@@ -35,7 +35,7 @@ var db = firebase.database();
 var currentPlayer = '';
 
 //disconnect object for firebase to sign off on disconnect
-var disconnect;
+var disconnectOccupied, disconnectReady;
 
 db.ref('game/phase').on('value', function(snapshot) {
 	switch (snapshot.val()) {
