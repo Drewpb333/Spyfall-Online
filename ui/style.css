@@ -1,12 +1,12 @@
+
+/* Sets a height relative to the viewport */
 html, body {
     height: 100%;
-    /* padding-top: .5%; */
 }
 
 body {
     background: dimgrey;
     font-family: 'Special Elite', cursive;
-    border-color: #403F4C;
 }
 
 button {
@@ -14,53 +14,6 @@ button {
 }
 
 /* Keeps the panels at full dimensions, regardless how populated they are*/
-
-
-
-.img-responsive {
-    max-height: 100%;
-}
-
-img {
-    vertical-align: middle;
-}
-
-input[type="text"]{
-    width: 65%;
-    margin-top: 8px;
-    opacity: .7;
-    cursor: default;
-}
-
-form {
-    cursor: default;
-    text-align: center;
-}
-
-input[type="submit"]{
-    width: 20%;
-    opacity: .7;
-    cursor: default;
-}
-
-#textSubmit {
-    margin-bottom: .5%;
-}
-
-#entryScreen {
-    margin: 0 auto;
-    float: none;
-}
-
-#logo {
-    font-family: 'Special Elite', cursive;
-    text-align: center;
-    font-size:  8em;
-    background: red;
-    opacity: .7;
-    cursor: default;
-}    
-
 .fill { 
     min-height: 100%;
     height: 100%;
@@ -70,9 +23,7 @@ input[type="submit"]{
 /* MAIN GAME SCREEN */
 
 /* Defines the dimensions of the wrapper for chatView and gameState panels */
-
 #chatAndState {
-    background: yellow;
     min-height: 80%;
     height: 80%;
 }
@@ -82,6 +33,7 @@ input[type="submit"]{
     height: 100%;
     border-radius: 10px;
     border: solid #0D1321;
+    background: #0D1321;
 }
 
 /* Styles and defines dimensions of the chat window */
@@ -92,8 +44,7 @@ input[type="submit"]{
     height: 90%;
     overflow: scroll; 
     border: solid #0D1321; 
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 10px;
     box-shadow: inset 0px 0px 20px 2px;
 }
 
@@ -153,7 +104,6 @@ input[type="submit"]{
 #imageAndTimer {
     min-height: 25%;
     height: 25%;
-    /* background: violet; */
 }
 
 /* Styles and defines dimensions of the div holding the image */
@@ -162,7 +112,7 @@ input[type="submit"]{
     min-height: 100%;
     height: 100%;
     text-align: -webkit-center;
-    border: solid;
+    border: solid #0D1321;
     box-shadow: inset 0px 0px 20px 2px;
 }
 
@@ -181,7 +131,7 @@ img {
     background: #E84855;
     min-height: 100%;
     text-align: center;
-    border: solid;
+    border: solid #0D1321;
     box-shadow: inset 0px 0px 20px 2px;
 }
 
@@ -198,7 +148,7 @@ img {
     min-height: 55%;
     text-align: center;
     overflow: scroll;
-    border: solid;
+    border: solid #0D1321;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     box-shadow: inset 0px 0px 20px 2px;
@@ -208,7 +158,7 @@ img {
 .locationButton {
     width: 49%;
     border-radius: 3px;
-    border-color: black;
+    border-color: #0D1321;
     box-shadow: inset 0px 0px 20px 2px;
 }
 
@@ -225,7 +175,7 @@ img {
     height: 100%;
     background: #E84855;
     padding: 10px;
-    border: solid;
+    border: solid #0D1321;
     border-radius: 10px;
     box-shadow: inset 0px 0px 20px 2px;
 }
@@ -234,7 +184,7 @@ img {
 #message {
     width: 100%;
     height: 80%;
-    border: solid;
+    border: solid #0D1321;
     padding: 5px;
     background: whitesmoke;
     border-radius: 5px;
@@ -246,21 +196,21 @@ img {
 /* Affects the text within the chat entry form */
 #textSubmit {
     margin-bottom: .5%;
-    border: solid;
+    border: solid #0D1321;
     border-radius: 5px;
+    box-shadow: inset 0px 0px 20px 2px;
 }
 
 /* Affects the text within input boxes */
 input[type="text"]{
     width: 65%;
     margin-top: 8px;
-    opacity: .7;
     cursor: default;
+    background: whitesmoke;
 }
 
 input[type="submit"]{
     width: 20%;
-    opacity: .7;
     cursor: default;
 }
 
@@ -282,11 +232,53 @@ form {
     font-family: 'Special Elite', cursive;
     text-align: center;
     font-size:  8em;
-    background: red;
-    opacity: .7;
+    background: #E84855;
     cursor: default;
-}    
+    box-shadow: inset 0px 0px 20px 2px;
+    margin-bottom: 25px;
+    border: solid;
+    border-width: 2px;}    
 
+/* Lobby table */
+.lobby-list {
+    background: burlywood;
+    box-shadow: inset 0px 0px 20px 1px;
+    border: solid;
+    border-width: 2px;}
+
+.lobby-list:hover {
+    cursor: default;
+}
+/* Styles the player lobby table */
+.lobbyTableHeaders {
+    text-align: center;
+    font-size: 1.25em;
+}
+
+.lobbyPlayerName {
+    width: 80%;
+}
+
+/* Lobby chat */
+.chatbox {
+    background: whitesmoke;
+    text-align: left;
+    padding: 10px;
+    overflow: scroll;
+    max-height: 250px;
+    height: 150px;
+    box-shadow: inset 1px 1px 20px 1px;
+    border: solid black;
+    border-width: 1px;
+}
+
+.chatbox:hover {
+    cursor: default;
+}
+
+#lobbyChatInput {
+    width: 80%;
+}
 /* Media Queries to handle changes in screen sizes */
 
 /* For screens narrower than 768px */
