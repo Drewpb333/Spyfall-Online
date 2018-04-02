@@ -96,7 +96,7 @@ db.ref('players').on('value', function (snapshot) {
 	}
 	if (!playerNotReady && readyCount>=2) {
 		//Load Game
-		$('body').load('ui/game.html');
+		renderGame();
 		db.ref('game/phase').set('gameOn');
 	}
 });
@@ -198,5 +198,11 @@ function renderPlayerList(container) {
 		if (currentPlayer!='') {
 			$('#player-list').append('<input type="button" id="sign-off" value="Sign Off">');
 		}
+	});
+}
+//-----------------------------------------Game Screen--------------------------------------------------------------------------------
+function renderGame() {
+	$('body').load('ui/game.html',function() {
+
 	});
 }
