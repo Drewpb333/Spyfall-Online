@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Game Screen</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
     </head>
 
@@ -108,19 +108,20 @@
                     
                     <div class="col-sm-5 fill" id="stateWindow">
                         <div class="row" id="spyOrNotBox">
+                            <p id="panelTitle">Status:</p>
                             <h1 id="playerAssignment">*SPY*</h1>
                         </div>
                         <div class="row" id="imageAndTimer">
                             <div class="col-sm-5 col-xs-6" id="imageBox">
                                 <img class="img-responsive" src="https://comosaconnect.org/wp-content/uploads/2017/03/school.png" alt="School">
                             </div>
-                            <div class="col-sm-7 col-xs-6" id="timerBox">Time Remaining:
-                                <br><br>
+                            <div class="col-sm-7 col-xs-6" id="timerBox">
+                                <p id="panelTitle">Time Remaining: </p>
                                 <p id="timer">00:00</p>
                             </div>
                         </div>
                         <div class="row" id="locationsBox">
-                            <p>Possible Locations</p>
+                            <p id="panelTitle">Possible Locations</p>
                             <button class="locationButton">Elementary School</button>
                             <button class="locationButton">Elementary School</button>
                             <button class="locationButton">Elementary School</button>
