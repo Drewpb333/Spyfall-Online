@@ -107,8 +107,8 @@ function renderPlayerList(container) {
 	//create listener for value changes
 	db.ref('players').on('value',function(snapshot) {
 		//Initiate table and add header
-		var table = $('<table>').attr('class','lobby-list');
-		table.append('<tr><th>Players</th><th>Ready</th><tr>');
+		var table = $('<table>').attr('class','table lobby-list');
+		table.append('<tr><th class="lobbyTableHeaders">Players</th><th class="lobbyTableHeaders">Ready</th><tr>');
 		//iterate through player properties from firebase
 		snapshot = snapshot.val();
 		var list = Object.keys(snapshot);
@@ -121,14 +121,14 @@ function renderPlayerList(container) {
 			if (currentPlayer != '') { //Playing
 				tdPlayer.text(list[i]);
 				if (list[i] == currentPlayer) { //own player
-					tdPlayer.attr('class','own-player');
+					tdPlayer.attr('class','btn btn-success own-player');
 					readyBox.attr('id','check-ready').removeAttr('disabled');
 				}
 			} else { //Not playing
 				if(snapshot[list[i]].occupied) { //occupied
-					tdPlayer.append('<input type="button" value="'+list[i]+'" class="join-game" disabled>');
+					tdPlayer.append('<input type="button" value="'+list[i]+'" class="join-game btn joinedPlayerName" disabled>');
 				} else { //available
-					tdPlayer.append('<input type="button" value="'+list[i]+'" class="join-game" >');
+					tdPlayer.append('<input type="button" value="'+list[i]+'" class="join-game btn btn-default lobbyPlayerName" >');
 				}
 			}
 			if (snapshot[list[i]].ready) {

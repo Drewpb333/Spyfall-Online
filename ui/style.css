@@ -249,6 +249,7 @@ form {
 .lobby-list:hover {
     cursor: default;
 }
+
 /* Styles the player lobby table */
 .lobbyTableHeaders {
     text-align: center;
@@ -257,6 +258,26 @@ form {
 
 .lobbyPlayerName {
     width: 80%;
+    background: whitesmoke;
+}
+
+.joinedPlayerName {
+    width: 75%;
+    background: #D0CCD0;
+    margin-bottom: 8px;
+
+}
+.joinedPlayerName:hover {
+    cursor: default;
+}
+
+.own-player {
+    width: 75%;
+    margin-bottom: 8px;
+}
+
+.own-player:hover {
+    cursor: default;
 }
 
 /* Lobby chat */
