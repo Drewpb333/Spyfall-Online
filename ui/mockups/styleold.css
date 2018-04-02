@@ -7,7 +7,6 @@ html, body {
 body {
     background: dimgrey;
     font-family: 'Special Elite', cursive;
-    border-color: #403F4C;
 }
 
 button {
@@ -105,7 +104,6 @@ button {
 #imageAndTimer {
     min-height: 25%;
     height: 25%;
-    /* background: violet; */
 }
 
 /* Styles and defines dimensions of the div holding the image */
@@ -133,7 +131,7 @@ img {
     background: #E84855;
     min-height: 100%;
     text-align: center;
-    border: solid;
+    border: solid #0D1321;
     box-shadow: inset 0px 0px 20px 2px;
 }
 
@@ -150,7 +148,7 @@ img {
     min-height: 55%;
     text-align: center;
     overflow: scroll;
-    border: solid;
+    border: solid #0D1321;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     box-shadow: inset 0px 0px 20px 2px;
