@@ -56,9 +56,11 @@ function resetPlayers(list) {
 
 //------------------------------------Lobby-----------------------------------------------------------
 function renderLobby() {
-	$('body').load('ui/lobby.html', function () {renderPlayerList('#player-list')});
+	$('body').load('ui/lobby.html', function () {
+		renderPlayerList('#player-list');
+		initChat('#chatWindow','#send-form');
+	});
 }
-//----------------------------Listeners-----------------------------------------------
 
 //Listeners to join game
 $(document).on('click','.join-game', function() {
@@ -200,6 +202,54 @@ function renderPlayerList(container) {
 		}
 	});
 }
+//------------------------------------Chat-----------------------------------------------------------
+
+var chatroom = firebase.database().ref('chatroom');
+
+//assume <form id=sendForm/>
+function initChat(chatBox,sendForm) {
+	//Build the message sender box
+	$(sendForm).append('<input type="text" name="message"/>');
+	$(sendForm).append('<input type="submit" >');	
+
+	$(document).on('submit',sendForm, function(evt) {
+		//prevent page refresh
+		evt.preventDefault();
+		
+		if (currentPlayer!='') {
+			//grab values from form
+			var user = currentPlayer;
+			var message = $(sendForm+'> input[name="message"]').val().trim();
+			
+			//add message to firebase
+			chatroom.push({user: user, message: message, time: firebase.database.ServerValue.TIMESTAMP}); 
+			//clear forms
+			$(sendForm+'> input[name="message"]').val('');
+		} else {
+			//push error message to chatlog (not persistent)
+			$(chatBox).append('<div class="error-message">You need to sign in first!</div>');
+		}
+
+
+
+	});
+	
+	//Update chatBox container with messages
+	chatroom.on('child_added',function (snapshot) {
+		var msg_in = snapshot.val();
+		var msg_out = $('<div class="message">');
+
+		msg_out.append($('<span class="chat-user">').text(msg_in.user));
+		msg_out.append(': ');
+		msg_out.append($('<span class="chat-text">').text(msg_in.message));
+
+		$(chatBox).append(msg_out);
+	});
+}
+
+
+
+
 //-----------------------------------------Game Screen--------------------------------------------------------------------------------
 function renderGame() {
 	$('body').load('ui/game.html',function() {
