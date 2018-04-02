@@ -6,9 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Game Lobby</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     </head>
 
     <body>
@@ -20,41 +19,7 @@
                     <br><br>
                     <h1 id="logo">Spy vs Spies</h1>
 
-                    <div id="player1"><button class="btn-lg btn-default playerButton">Join as Player 1</button></div>
-                    <!-- <span><p>Player 1 <button class="btn-default playerButton" id="player1">Join</button></p></span> -->
-                    <!-- <button class="btn-default playerButton">Player 1</button><br>
-                    <button class="btn-default playerButton">Player 2</button><br>
-                    <button class="btn-default playerButton">Player 3</button><br>
-                    <button class="btn-default playerButton">Player 4</button><br>
-                    <button class="btn-default playerButton">Player 5</button><br>
-                    <button class="btn-default playerButton">Player 6</button><br>
-                    <button class="btn-default playerButton">Player 7</button><br>
-                    <button class="btn-default playerButton">Player 8</button><br> -->
-
-                    <script>
-                    
-                        $(document).on("click", "#player1", function(){
-                            event.preventDefault();
-                            $("#player1").empty();
-                            var newButton = $("<button>");
-                                newButton.addClass("btn-lg btn-danger");
-                                newButton.attr("id", "ready");
-                                newButton.text("Ready?");
-                                $("#player1").append(newButton);
-                            });
-                            
-                        $(document).on("click", "#ready", function(){
-                            event.preventDefault();
-                            console.log("ready");
-                            $("#ready").empty();
-                            var joined = $("<button>");
-                                joined.addClass("btn-lg btn-danger disabled");
-                                joined.text("Joined!");
-                                $("#ready").append(joined);
-                        });
-                    
-                    </script>
-                    <!-- <form class="form-inline">
+                    <form class="form-inline">
                         <input type="text" class="newPlayerName" placeholder="Enter your name to join the game...">
                         <input type="submit" class="newPlayerSubmit" value="Join!">
 
@@ -78,7 +43,7 @@
                         
                         <input type="text" class="newPlayerName" placeholder="Enter your name to join the game...">
                         <input type="submit" class="newPlayerSubmit" value="Join!">
-                    </form> -->
+                    </form>
                 </div>
             </div>
 

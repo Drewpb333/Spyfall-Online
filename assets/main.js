@@ -1,3 +1,5 @@
+//Dummy variable to test chat app
+var gameOn = false;
 
 //Dynamicaly update list of available and occupied players
 db.ref('roster').on('value', function(snapshot) {
@@ -14,7 +16,7 @@ db.ref('roster').on('value', function(snapshot) {
 		if(obj[player].occupied) {
 			$('#playing-list').append($('<button>').text(player));
 		} else {
-			$('#available-list').append($('<button>').text(player));
+			$('#available-list').append($('<button>').text(player).attr('class','available'));
 		}
 	});
 
@@ -25,6 +27,6 @@ db.ref('roster').on('value', function(snapshot) {
 	}
 });
 
-$(document).ready(function() {
+$(document).on('click','.available',function() {
+	signOn($(this).text());
 });
-

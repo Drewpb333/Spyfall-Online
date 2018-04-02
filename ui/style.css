@@ -1,7 +1,6 @@
-
-/* Sets a height relative to the viewport */
 html, body {
     height: 100%;
+    /* padding-top: .5%; */
 }
 
 body {
@@ -15,6 +14,53 @@ button {
 }
 
 /* Keeps the panels at full dimensions, regardless how populated they are*/
+
+
+
+.img-responsive {
+    max-height: 100%;
+}
+
+img {
+    vertical-align: middle;
+}
+
+input[type="text"]{
+    width: 65%;
+    margin-top: 8px;
+    opacity: .7;
+    cursor: default;
+}
+
+form {
+    cursor: default;
+    text-align: center;
+}
+
+input[type="submit"]{
+    width: 20%;
+    opacity: .7;
+    cursor: default;
+}
+
+#textSubmit {
+    margin-bottom: .5%;
+}
+
+#entryScreen {
+    margin: 0 auto;
+    float: none;
+}
+
+#logo {
+    font-family: 'Special Elite', cursive;
+    text-align: center;
+    font-size:  8em;
+    background: red;
+    opacity: .7;
+    cursor: default;
+}    
+
 .fill { 
     min-height: 100%;
     height: 100%;
@@ -24,7 +70,9 @@ button {
 /* MAIN GAME SCREEN */
 
 /* Defines the dimensions of the wrapper for chatView and gameState panels */
+
 #chatAndState {
+    background: yellow;
     min-height: 80%;
     height: 80%;
 }
