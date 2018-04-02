@@ -64,6 +64,8 @@ function signOn(name) {
 			disconnectOccupied.set(false);
 			disconnectReady = db.ref('players/'+currentPlayer+'/ready').onDisconnect()
 			disconnectReady.set(false);
+			//enable chat submit button
+			$().removeProp('disabled');	
 		}
 	});
 }
