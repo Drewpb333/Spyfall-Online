@@ -1,7 +1,52 @@
-function renderLobby() {
-	$('body').load('ui/lobby.html');
-	renderPlayerList('#player-list');
-}
+
+$('body').load('ui/lobby.html');
+renderPlayerList('#player-list');
+
+//----------------------------Listeners-----------------------------------------------
+
+//Listeners to join game
+$(document).on('click','.join-game', function() {
+	signOn($(this).val());
+});
+
+//Listener to sign off
+$(document).on('click','#sign-off', function() {
+	signOff();
+	$('#sign-off').remove();
+});
+
+//Listener to check ready
+$(document).on('change','#check-ready', function() {
+	if($(this).is(':checked')) {
+		db.ref('players/'+currentPlayer+'/ready').set(true);
+	} else {
+		db.ref('players/'+currentPlayer+'/ready').set(false);
+	}
+});
+
+//Are there at least 3 players ready
+db.ref('players').on('value', function (snapshot) {
+	var readyCount = 0;
+	var playerNotReady = false;
+	var players = snapshot.val();
+	for (player in players) {
+		//If occupied and ready == true -> readyCount++
+		if (players[player].occupied && players[player].ready) {
+			readyCount++;
+		} else if (players[player].occupied && !players[player].ready) {
+			playerNotReady = true;
+		}
+		//if occupied and NOT  ready -> playerNotReady=true
+	}
+	if (!playerNotReady && readyCount>=2) {
+		//Load Game
+		$('body').load('ui/game.html');
+		db.ref('game/phase').set('gameOn');
+	}
+});
+
+//----------------------------Function Declarations-----------------------------------------------
+
 
 
 //Join the game and take a player slot
@@ -35,25 +80,6 @@ function signOff() {
 	} else {console.log('signoff error');}
 }
 
-//Create listeners to join game
-$(document).on('click','.join-game', function() {
-	signOn($(this).val());
-});
-
-//Listener to sign off
-$(document).on('click','#sign-off', function() {
-	signOff();
-	$('#sign-off').remove();
-});
-
-//Listener to check ready
-$(document).on('change','#check-ready', function() {
-	if($(this).is(':checked')) {
-		db.ref('players/'+currentPlayer+'/ready').set(true);
-	} else {
-		db.ref('players/'+currentPlayer+'/ready').set(false);
-	}
-});
 /*
 <table class="lobby-list">
 	<tr>

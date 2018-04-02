@@ -41,7 +41,7 @@ db.ref('game/phase').on('value', function(snapshot) {
 	switch (snapshot.val()) {
 		case 'lobby':
 			console.log('Building lobby page...');
-			renderLobby();
+			$.getScript('js/lobby.js');
 			break;
 	}
 });
@@ -58,3 +58,4 @@ function resetPlayers(list) {
 	});
 	db.ref('game/phase').set('lobby');
 }
+
