@@ -175,7 +175,7 @@ function renderPlayerList(container) {
 			if (currentPlayer != '') { //Playing
 				tdPlayer.text(list[i]);
 				if (list[i] == currentPlayer) { //own player
-					tdPlayer.addClass('class','own-player btn btn-success');
+					tdPlayer.addClass('own-player btn btn-success');
 					readyBox.attr('id','check-ready').removeAttr('disabled');
 				}
 			} else { //Not playing
