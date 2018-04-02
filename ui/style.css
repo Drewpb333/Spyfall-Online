@@ -280,6 +280,14 @@ form {
     cursor: default;
 }
 
+/* Increases the size of the checkboxes */
+input[type=checkbox]{
+    zoom: 2;
+    margin: 0;
+}
+
+
+Add Comment
 /* Lobby chat */
 .chatbox {
     background: whitesmoke;
