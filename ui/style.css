@@ -287,7 +287,7 @@ input[type=checkbox]{
 }
 
 
-Add Comment
+
 /* Lobby chat */
 .chatbox {
     background: whitesmoke;
@@ -305,7 +305,7 @@ Add Comment
     cursor: default;
 }
 
-#lobbyChatInput {
+#send-form {
     width: 80%;
 }
 /* Media Queries to handle changes in screen sizes */
