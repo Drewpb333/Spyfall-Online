@@ -256,6 +256,35 @@ function initChat(chatBox,sendForm) {
 //-----------------------------------------Game Screen--------------------------------------------------------------------------------
 function renderGame() {
 	$('body').load('ui/game.html',function() {
-		
+		gameClock('#timer',8,0,timer,function() {
+			console.log('Out of time!');
+		});
 	});
+}
+
+var timer;
+
+function gameClock(container, minutes, seconds, timer, cb) {
+	$(container).text(stringify(minutes,seconds));
+	timer = setInterval(function () {
+		if (seconds==0 && minutes==0) {
+			clearInterval(timer);
+			cb();
+		} else if (seconds==0) {
+			minutes--;
+			seconds=59;
+			$(container).text(stringify(minutes,seconds));
+		} else {
+			seconds--;
+			$(container).text(stringify(minutes,seconds));
+		}
+
+	},1000);
+	function stringify(minutes,seconds) {
+		var str;
+		minutes<10 ? str='0'+minutes : str = String(minutes);
+		str+=':';	
+		seconds<10 ? str+='0'+seconds : str += String(seconds);
+		return str;
+	}
 }
