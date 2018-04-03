@@ -228,7 +228,7 @@ function initChat(chatBox,sendForm) {
 				console.log('This is shakespeare!!');
 				var tmp = message.slice('shakespeare:'.length);
 				var queryUrl =
-					"https://cors-anywhere.herokuapp.com/https://api.funtranslations.com/translate/shakespeare.json?text=" +
+					"https://api.funtranslations.com/translate/shakespeare.json?text=" +
 					tmp;
 				$.ajax({
 					url: queryUrl,
