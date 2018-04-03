@@ -224,8 +224,24 @@ function initChat(chatBox,sendForm) {
 			var user = currentPlayer;
 			var message = $(sendForm+'> input[name="message"]').val().trim();
 			
-			//add message to firebase
-			chatroom.push({user: user, message: message, time: firebase.database.ServerValue.TIMESTAMP}); 
+			if (message.startsWith('shakespeare:')) {
+				console.log('This is shakespeare!!');
+				var tmp = message.slice('shakespeare:'.length);
+				var queryUrl =
+					"https://cors-anywhere.herokuapp.com/https://api.funtranslations.com/translate/shakespeare.json?text=" +
+					tmp;
+				$.ajax({
+					url: queryUrl,
+					method: "GET"
+				}).then(function (response) {
+					message  = response["contents"]["translated"];
+					chatroom.push({user: user, message: message, time: firebase.database.ServerValue.TIMESTAMP}); 
+				});
+			} else {
+				//add message to firebase
+				chatroom.push({user: user, message: message, time: firebase.database.ServerValue.TIMESTAMP}); 
+			}
+
 			//clear forms
 			$(sendForm+'> input[name="message"]').val('');
 		} else {
