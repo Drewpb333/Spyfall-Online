@@ -102,7 +102,7 @@ db.ref('players').on('value', function (snapshot) {
 	if (!playerNotReady && readyCount>=2) {
 		//Load Game
 		renderGame();
-		db.ref('game/phase').set('gameOn');
+		db.ref('game/phase').set('in-progress');
 	}
 });
 
