@@ -262,7 +262,7 @@ function initChat(chatBox,sendForm) {
 		msg_out.append(': ');
 		msg_out.append($('<span class="chat-text">').text(msg_in.message));
 
-		$(chatBox).append(msg_out);
+		$(chatBox).prepend(msg_out);
 	});
 }
 
