@@ -1,3 +1,5 @@
+//#translate is equal to user input form
+//#translate-button is equal to submit button in user input form
 $("#translate").on("click", "#translate-button", function (event) {
     event.preventDefault();
     var userInput = $("#user-input").val().trim();
