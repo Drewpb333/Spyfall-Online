@@ -61,7 +61,7 @@ function resetPlayers(list) {
 function renderLobby() {
 	$('body').load('ui/lobby.html', function () {
 		renderPlayerList('#player-list');
-		initChat('#chatWindow','#send-form');
+		initChat('.chatbox','#send-form');
 	});
 }
 
@@ -213,7 +213,7 @@ var chatroom = firebase.database().ref('chatroom');
 function initChat(chatBox,sendForm) {
 	//Build the message sender box
 	$(sendForm).append('<input type="text" name="message"/>');
-	$(sendForm).append('<input type="submit" >');	
+	$(sendForm).append('<input type="submit" class="btn btn-primary">');	
 
 	$(document).on('submit',sendForm, function(evt) {
 		//prevent page refresh
