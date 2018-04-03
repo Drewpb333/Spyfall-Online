@@ -41,6 +41,9 @@ db.ref('game/phase').on('value', function(snapshot) {
 		case 'lobby':
 			renderLobby();
 			break;
+		case 'in-progress':
+			renderGame();
+			break;
 	}
 });
 
@@ -253,6 +256,6 @@ function initChat(chatBox,sendForm) {
 //-----------------------------------------Game Screen--------------------------------------------------------------------------------
 function renderGame() {
 	$('body').load('ui/game.html',function() {
-
+		
 	});
 }
