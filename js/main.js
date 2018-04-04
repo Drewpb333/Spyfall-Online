@@ -246,7 +246,7 @@ function initChat(chatBox,sendForm) {
 			$(sendForm+'> input[name="message"]').val('');
 		} else {
 			//push error message to chatlog (not persistent)
-			$(chatBox).append('<div class="error-message">You need to sign in first!</div>');
+			$(chatBox).prepend('<div class="error-message">You need to sign in first!</div>');
 		}
 
 
